@@ -1,5 +1,13 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var charset = [];
+var numberOfCharacters = 8;
+var digitsRequest = true;
+var lowerCaseRequest = true;
+var upperCaseRequest = true;
+var specialCharRequest = true;
+var passwordArray = [];
+var password = "";
 
 // Write password to the #password input
 function writePassword() {
@@ -9,15 +17,6 @@ function writePassword() {
   passwordText.value = password;
 
 }
-//need to create user input
-// setting global variables to execute outside of button click so as to not repeat 
-// concatenation on the target array more than once
-var charset = [];
-var numberOfCharacters = 8;
-var digitsRequest = true;
-var lowerCaseRequest = true;
-var upperCaseRequest = true;
-var specialCharRequest = true;
 
 // these arrays are used to build a target from which a character to add to a new password array
 // which will later be turned into a string for the user once the iteration process is complete
@@ -43,48 +42,37 @@ if (specialCharRequest = true) {
   charset = spCharacters.concat(charset);
 } 
 
+generatePassword();
+
 // iteration process for generating the password array
 function generatePassword() {
 
 // validates input as containing at least one set of target characters for the password
-  if(digitsRequest || lowerCaseRequest || upperCaseRequest || specialCharRequest){
+  if (digitsRequest) {
 
 // validated input proceeds to the iteration process
-      
       function chooseArrayValue() { 
-        for(var i = 0; i <= numberOfCharacters; i++){
-        var length = (charset.length);
+        
         var target = 0;
+        var value = [];
         console.log(charset.length);
 
-          function generateTarget () {
-          if (length < target = Math.floor((Math.random() * 100) + 1)){
-          generateTarget();}
-          else {
+          function generateTarget() {
+            target = (Math.random * 100);
+            console.log(target);
+              if (charset.length < target) {
+              generateTarget();
+              } else {
+                value = (charset[target]);
+                passwordArray = value.concat(passwordArray);
+              }
+             } 
             
-          } 
+
+            console.log(passwordArray);
+           }
           }
-          }
-        }
-        
-
-
-
-
-
-    } else {
-      console.log("You must select one type of character for your password")
-      return;
-    }
-  }
-}
-
-
- 
-
-
-
-// Add event listener to generate button
-//generateBtn.addEventListener("click", writePassword);
-
+        } 
+   
+  
 
