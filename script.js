@@ -9,6 +9,7 @@ var specialCharRequest = true;
 var passwordArray = [];
 var password = "";
 
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -42,37 +43,34 @@ if (specialCharRequest = true) {
   charset = spCharacters.concat(charset);
 } 
 
-generatePassword();
-
 // iteration process for generating the password array
-function generatePassword() {
-
 // validates input as containing at least one set of target characters for the password
-  if (digitsRequest) {
-
+if (digitsRequest || lowerCaseRequest || upperCaseRequest || specialCharRequest) {
+  chooseArrayValue();
+    
 // validated input proceeds to the iteration process
       function chooseArrayValue() { 
-        
         var target = 0;
         var value = [];
-        console.log(charset.length);
-
+// generating the random values for selecting from the array
+        for(i = 0; i <= (numberOfCharacters -1); i++){
+          generateTarget();
           function generateTarget() {
-            target = (Math.random * 100);
-            console.log(target);
-              if (charset.length < target) {
-              generateTarget();
-              } else {
-                value = (charset[target]);
-                passwordArray = value.concat(passwordArray);
+            target = Math.floor(Math.random() * 100);
+// checking that the value is a valid index of the array
+            if (charset.length < target) {
+            generateTarget();
+            } 
+          } 
+// retrieving the value and contencating into the array
+        if(charset.length > target) 
+        value = (charset[target]);
+        passwordArray = value.concat(passwordArray);          
+        console.log(passwordArray);
               }
-             } 
-            
-
-            console.log(passwordArray);
-           }
+            }
           }
-        } 
+        
    
   
 
