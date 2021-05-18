@@ -10,38 +10,43 @@ function writePassword() {
 
 }
 
-
-
+var charset = [];
 var numberOfCharacters = 8;
-var lowerCaseRequest = "true";
-var upperCaseRequest = "true";
-var specialCharRequest = "true";
-var charset = [""];
+var digitsRequested = true;
+var lowerCaseRequest = true;
+var upperCaseRequest = true;
+var specialCharRequest = true;
+
+var digits = ["1","2","3","4","5","6","7","8","9","0"];
+var spCharacters = [",","!","#","$","%","&","'","*","+","-",".","/",":",";","<",">","=","?","@"];
+var alphabetLowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var alphabetUpperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+  
+if (digitsRequested = true){
+  charset = digits.concat(charset);
+  console.log(charset);
+}
+
+if (lowerCaseRequest = true) {
+  charset = alphabetLowerCase.concat(charset);
+  console.log(charset);
+} 
+
+if (upperCaseRequest = true) {
+  charset = alphabetUpperCase.concat(charset);
+  console.log(charset);
+} 
+  
+if (specialCharRequest = true) {
+  charset = spCharacters.concat(charset);
+  console.log(charset);
+} 
 
 function generatePassword() {
-  const digits = ["1","2","3","4","5","6","7","8","9","0"];
-  const spCharacters = [",","!","#","$","%","&","'","*","+","-",".","/",":",";","<",">","=","?","@"];
-  const alphabetLowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-  const alphabetUpperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-  
+for(var i = 0; i <= numberOfCharacters; i++){
 
-  if (lowerCaseRequest = "true") {
-      charset.concat (alphabetLowerCase);
-      
-      } 
-
-  if (upperCaseRequest = "true") {
-      charset.concat (alphabetUpperCase);
-      } 
-  
-  if (specialCharRequest = "true") {
-      charset.concat (spCharacters);
-      } 
-    console.log(charset);
   }
- 
-  generatePassword();
-
+}
 
 
  
