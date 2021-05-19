@@ -2,10 +2,10 @@
 var generateBtn = document.querySelector("#generate");
 var charset = [];
 var numberOfCharacters = 8;
-var digitsRequest = true;
-var lowerCaseRequest = true;
-var upperCaseRequest = true;
-var specialCharRequest = true;
+var digitsRequest = false;
+var lowerCaseRequest = false;
+var upperCaseRequest = false;
+var specialCharRequest = false;
 var passwordArray = [];
 var digits = ["1","2","3","4","5","6","7","8","9","0"];
 var spCharacters = [",","!","#","$","%","&","'","*","+","-",".","/",":",";","<",">","=","?","@"];
@@ -31,8 +31,6 @@ if (specialCharRequest) {
   charset = spCharacters.concat(charset);
 } 
 
-
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -45,9 +43,34 @@ function writePassword() {
 function generatePassword() {
 // iteration process for generating the password array
 // validates input as containing at least one set of target characters for the password
-if (passwordArray.length > 0) {
-  return;
-}
+
+alert ("Please set the following parameters");
+var howLong = prompt("Please enter desired password length", "minimum 8 characters");
+if (howLong != null){
+  if (!isNaN(howLong)){
+    if (howLong > 7){
+      if (howLong < 129){
+        numberOfCharacters = howLong;
+        alert("You entered " + howLong + " characters");
+      } else {
+        alert("Maximum length is 128!")
+        return;
+      }
+    } else {
+      alert("Minimum length is 8!")
+      return;
+    }
+  } else {
+    alert("You must enter a number!")
+    return;
+  } 
+  } 
+
+// user inputs the parameters
+//    input digits request
+//    store digits request
+//    etcetera
+// parameters are validated
 if (digitsRequest || lowerCaseRequest || upperCaseRequest || specialCharRequest) {
   chooseArrayValue();
   } else {
@@ -72,8 +95,7 @@ if (digitsRequest || lowerCaseRequest || upperCaseRequest || specialCharRequest)
         }
       }    
     }
-    password = passwordArray.toString('');
-    console.log(password);
-  }
+  
+}
   
 

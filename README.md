@@ -13,3 +13,5 @@ completed functioning password engine that creates array of password symbols.  a
 refactored code for readability and clarity 05/18/2021 4:52p
 
 prototype of passcode generator completed. Generate button works with password populated.  05/18/2021 9:57pm
+
+implement password length input handling 5/19/2021 5:08am
