@@ -17,3 +17,5 @@ prototype of passcode generator completed. Generate button works with password p
 implement password length input handling 5/19/2021 5:08am
 
 added boolean inputs to target array selection and configured user prompts. refactor code. switch back to main branch. final commit 5/19/2021 9:29am
+
+link to the final product https://13tinydots.github.io/passwordgenerator/
