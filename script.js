@@ -14,22 +14,6 @@ var alphabetUpperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-// build the charset array from which the password is randomly selected
-if (digitsRequest) {
-  charset = digits.concat(charset);
-}
-
-if (lowerCaseRequest) {
-  charset = alphabetLowerCase.concat(charset);
-} 
-
-if (upperCaseRequest) {
-  charset = alphabetUpperCase.concat(charset);
-} 
-  
-if (specialCharRequest) {
-  charset = spCharacters.concat(charset);
-} 
 
 // Write password to the #password input
 function writePassword() {
@@ -41,9 +25,6 @@ function writePassword() {
 }
 
 function generatePassword() {
-// iteration process for generating the password array
-// validates input as containing at least one set of target characters for the password
-
 alert ("Please set the following parameters");
 var howLong = prompt("Please enter desired password length", "minimum 8 characters");
 if (howLong != null){
@@ -63,20 +44,49 @@ if (howLong != null){
   } else {
     alert("You must enter a number!")
     return;
-  } 
+    } 
   } 
 
-// user inputs the parameters
-//    input digits request
-//    store digits request
-//    etcetera
-// parameters are validated
+// build the character set from the user input fields using true/false
+  var digitsConfirm = confirm("Would you like numbers?");
+    if(digitsConfirm) {
+      digitsRequest = digitsConfirm;
+      if (digitsRequest) {
+        charset = digits.concat(charset);
+      }
+    }
+
+  var lowerCaseConfirm = confirm("Would you like lower case letters?");
+    if(lowerCaseConfirm) {
+      lowerCaseRequest = lowerCaseConfirm;
+      if (lowerCaseRequest) {
+        charset = alphabetLowerCase.concat(charset);
+      } 
+    }
+
+  var upperCaseConfirm = confirm("Would you like upper case letters?");
+    if(upperCaseConfirm) {
+      upperCaseRequest = upperCaseConfirm;
+      if (upperCaseRequest) {
+        charset = alphabetUpperCase.concat(charset);
+    } 
+  }
+
+  var specialCharConfirm = confirm("Would you like special characters?");
+    if(specialCharConfirm) {
+      specialCharRequest = specialCharConfirm;
+      if (specialCharRequest) {
+        charset = spCharacters.concat(charset);
+      } 
+    }
+
+// validate that at least one character set was selected
 if (digitsRequest || lowerCaseRequest || upperCaseRequest || specialCharRequest) {
   chooseArrayValue();
   } else {
   console.log("You must pick a set!")
   }
-// validated input proceeds to the iteration process
+// iteration process
   function chooseArrayValue() { 
     var target = 0;
     var value = [];
