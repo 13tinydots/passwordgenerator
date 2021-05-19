@@ -12,39 +12,47 @@ var spCharacters = [",","!","#","$","%","&","'","*","+","-",".","/",":",";","<",
 var alphabetLowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var alphabetUpperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 // build the charset array from which the password is randomly selected
-if (digitsRequest = true){
+if (digitsRequest) {
   charset = digits.concat(charset);
 }
 
-if (lowerCaseRequest = true) {
+if (lowerCaseRequest) {
   charset = alphabetLowerCase.concat(charset);
 } 
 
-if (upperCaseRequest = true) {
+if (upperCaseRequest) {
   charset = alphabetUpperCase.concat(charset);
 } 
   
-if (specialCharRequest = true) {
+if (specialCharRequest) {
   charset = spCharacters.concat(charset);
 } 
-writePassword();
-password = passwordArray.toString('');
-console.log(password);
+
+
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
+  password = passwordArray.toString('');
   passwordText.value = password;
+  passwordText = passwordText.toString();
 }
 
 function generatePassword() {
 // iteration process for generating the password array
 // validates input as containing at least one set of target characters for the password
+if (passwordArray.length > 0) {
+  return;
+}
 if (digitsRequest || lowerCaseRequest || upperCaseRequest || specialCharRequest) {
   chooseArrayValue();
-    
+  } else {
+  console.log("You must pick a set!")
+  }
 // validated input proceeds to the iteration process
   function chooseArrayValue() { 
     var target = 0;
@@ -57,14 +65,15 @@ if (digitsRequest || lowerCaseRequest || upperCaseRequest || specialCharRequest)
         if (charset.length < target) {
           generateTarget();
          } 
-        }  //validating the array
-        if(charset.length > target) 
-        value = (charset[target]);
+        }  //validating the array and creating the password array
+        if(charset.length > target){ 
+        value = (charset[target]);  
         passwordArray = value.concat(passwordArray);  
-        console.log(passwordArray);
-      }
-    }    
+        }
+      }    
+    }
+    password = passwordArray.toString('');
+    console.log(password);
   }
-}
   
 

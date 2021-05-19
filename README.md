@@ -11,3 +11,5 @@ commented working points in the file and built array target engine 05/18/2021 8:
 completed functioning password engine that creates array of password symbols.  added appropriate comments 05/18/21 11:01a
 
 refactored code for readability and clarity 05/18/2021 4:52p
+
+prototype of passcode generator completed. Generate button works with password populated.  05/18/2021 9:57pm
