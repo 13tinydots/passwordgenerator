@@ -1,12 +1,12 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var charset = [];
+var passwordArray = [];
 var numberOfCharacters = 8;
 var digitsRequest = false;
 var lowerCaseRequest = false;
 var upperCaseRequest = false;
 var specialCharRequest = false;
-var passwordArray = [];
 var digits = ["1","2","3","4","5","6","7","8","9","0"];
 var spCharacters = [",","!","#","$","%","&","'","*","+","-",".","/",":",";","<",">","=","?","@"];
 var alphabetLowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
@@ -26,13 +26,13 @@ function writePassword() {
 
 function generatePassword() {
 alert ("Please set the following parameters");
-var howLong = prompt("Please enter desired password length", "minimum 8 characters");
-if (howLong == isNaN || howLong < 8 || howLong > 128 ) {
+var howLong = prompt("Please enter desired password length minimum 8 characters", "8");
+if (howLong < 8 || howLong > 128 || isNaN(howLong) === true ) {
   alert("Please try again");
   return;
 } else {
   numberOfCharacters = howLong;
-  alert("You entered " + howLong + " characters");
+  alert("You entered " + howLong);
 }
 
 // build the character set from the user input fields using true/false
@@ -55,6 +55,7 @@ if (howLong == isNaN || howLong < 8 || howLong > 128 ) {
     if(specialCharConfirm) {
        charset = spCharacters.concat(charset);
       } 
+     
       if (charset.length < 1) {
       alert ("You must select a type of character");
       return;
@@ -64,8 +65,6 @@ if (howLong == isNaN || howLong < 8 || howLong > 128 ) {
       }
     }
   
-
-
   function chooseArrayValue() { 
     var target = 0;
     var value = [];
