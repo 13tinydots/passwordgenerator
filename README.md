@@ -20,8 +20,10 @@ added boolean inputs to target array selection and configured user prompts. refa
 
 refactored for clarity and efficiency 5/22/2021 7:22am
 
-link to the final product https://13tinydots.github.io/passwordgenerator/
 refactored for clarity and efficiency 5/22/2021 7:22am
+
 added error handling for lack of character set choice. 5/22/2021 7:40am
+
+link to the final product https://13tinydots.github.io/passwordgenerator/
 
 <img src="https://user-images.githubusercontent.com/79337638/118835606-c7146e00-b888-11eb-8084-1aa1cb2a63e2.jpeg" width="90%"></img>
