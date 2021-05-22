@@ -27,66 +27,39 @@ function writePassword() {
 function generatePassword() {
 alert ("Please set the following parameters");
 var howLong = prompt("Please enter desired password length", "minimum 8 characters");
-if (howLong != null){
-  if (!isNaN(howLong)){
-    if (howLong > 7){
-      if (howLong < 129){
-        numberOfCharacters = howLong;
-        alert("You entered " + howLong + " characters");
-      } else {
-        alert("Maximum length is 128!")
-        return;
-      }
-    } else {
-      alert("Minimum length is 8!")
-      return;
-    }
-  } else {
-    alert("You must enter a number!")
-    return;
-    } 
-  } 
+if (howLong == isNaN || howLong < 8 || howLong > 128 ) {
+  alert("Please try again");
+  return;
+} else {
+  numberOfCharacters = howLong;
+  alert("You entered " + howLong + " characters");
+}
 
 // build the character set from the user input fields using true/false
   var digitsConfirm = confirm("Would you like numbers?");
     if(digitsConfirm) {
-      digitsRequest = digitsConfirm;
-      if (digitsRequest) {
-        charset = digits.concat(charset);
+      charset = digits.concat(charset);
       }
-    }
-
+    
   var lowerCaseConfirm = confirm("Would you like lower case letters?");
     if(lowerCaseConfirm) {
-      lowerCaseRequest = lowerCaseConfirm;
-      if (lowerCaseRequest) {
-        charset = alphabetLowerCase.concat(charset);
+       charset = alphabetLowerCase.concat(charset);
       } 
-    }
-
+    
   var upperCaseConfirm = confirm("Would you like upper case letters?");
     if(upperCaseConfirm) {
-      upperCaseRequest = upperCaseConfirm;
-      if (upperCaseRequest) {
-        charset = alphabetUpperCase.concat(charset);
+      charset = alphabetUpperCase.concat(charset);
     } 
-  }
-
+  
   var specialCharConfirm = confirm("Would you like special characters?");
     if(specialCharConfirm) {
-      specialCharRequest = specialCharConfirm;
-      if (specialCharRequest) {
-        charset = spCharacters.concat(charset);
+       charset = spCharacters.concat(charset);
       } 
+      chooseArrayValue();
     }
-
+  
 // validate that at least one character set was selected
-if (digitsRequest || lowerCaseRequest || upperCaseRequest || specialCharRequest) {
-  chooseArrayValue();
-  } else {
-  console.log("You must pick a set!")
-  }
-// iteration process
+
   function chooseArrayValue() { 
     var target = 0;
     var value = [];
@@ -94,18 +67,13 @@ if (digitsRequest || lowerCaseRequest || upperCaseRequest || specialCharRequest)
     for(i = 0; i <= (numberOfCharacters -1); i++){
       generateTarget();
       function generateTarget() {
-        target = Math.floor(Math.random() * 100);
-        if (charset.length < target) {
-          generateTarget();
-         } 
-        }  //validating the array and creating the password array
-        if(charset.length > target){ 
+        target = Math.floor(Math.random() * charset.length);
         value = (charset[target]);  
         passwordArray = value.concat(passwordArray);  
         }
       }    
     }
   
-}
+
   
 
