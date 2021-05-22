@@ -55,10 +55,16 @@ if (howLong == isNaN || howLong < 8 || howLong > 128 ) {
     if(specialCharConfirm) {
        charset = spCharacters.concat(charset);
       } 
+      if (charset.length < 1) {
+      alert ("You must select a type of character");
+      return;
+
+      } else {
       chooseArrayValue();
+      }
     }
   
-// validate that at least one character set was selected
+
 
   function chooseArrayValue() { 
     var target = 0;
