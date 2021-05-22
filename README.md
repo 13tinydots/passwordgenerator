@@ -18,6 +18,8 @@ implement password length input handling 5/19/2021 5:08am
 
 added boolean inputs to target array selection and configured user prompts. refactor code. switch back to main branch. final commit 5/19/2021 9:29am
 
+refactored for clarity and efficiency 5/22/2021 7:22am
+
 link to the final product https://13tinydots.github.io/passwordgenerator/
 refactored for clarity and efficiency 5/22/2021 7:22am
 added error handling for lack of character set choice. 5/22/2021 7:40am
